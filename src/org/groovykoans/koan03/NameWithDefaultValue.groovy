@@ -19,9 +19,12 @@ package org.groovykoans.koan03
 class NameWithDefaultValue {
     String name
 
+
     // ------------ START EDITING HERE ----------------------
 
-
+    def getName(name="Anonymous"){
+        "$name"
+    }
     // ------------ STOP EDITING HERE  ----------------------
 
 }
