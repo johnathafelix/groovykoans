@@ -46,7 +46,7 @@ class Koan04 extends GroovyTestCase {
         // What is the result from the above execution?
         def expectedHelloClosureResult
         // ------------ START EDITING HERE ----------------------
-
+        expectedHelloClosureResult = sayHelloClosure()
 
         // ------------ STOP EDITING HERE  ----------------------
         assert helloClosureResult == expectedHelloClosureResult
@@ -58,7 +58,7 @@ class Koan04 extends GroovyTestCase {
         // What is the result from the above execution?
         String expectedHelloRonalda
         // ------------ START EDITING HERE ----------------------
-
+           expectedHelloRonalda = "Hello Ronalda"
 
         // ------------ STOP EDITING HERE  ----------------------
         assert helloRonalda == expectedHelloRonalda
@@ -72,7 +72,7 @@ class Koan04 extends GroovyTestCase {
         // What is the result from the above execution?
         def expectedHappyBirthdayGranger
         // ------------ START EDITING HERE ----------------------
-
+        expectedHappyBirthdayGranger="Happy Birthday To Hermione"
 
         // ------------ STOP EDITING HERE  ----------------------
         assert happyBirthdayGranger == expectedHappyBirthdayGranger
@@ -80,7 +80,7 @@ class Koan04 extends GroovyTestCase {
         // Create a closure that accepts two integers, adds them, and multiplies the result by two
         def resultClosure
         // ------------ START EDITING HERE ----------------------
-
+        resultClosure = {Integer x, Integer y -> (x+y)*2}
 
         // ------------ STOP EDITING HERE  ----------------------
 
@@ -113,7 +113,7 @@ class Koan04 extends GroovyTestCase {
 
         // Let's check that we got the same result (you can use the assertX methods)
         // ------------ START EDITING HERE ----------------------
-
+        assert javaResult==groovyResult
 
         // ------------ STOP EDITING HERE  ----------------------
 
@@ -129,7 +129,7 @@ class Koan04 extends GroovyTestCase {
         // What will monkeyColors contain?
         def expectedMonkeyColors = []
         // ------------ START EDITING HERE ----------------------
-
+        expectedMonkeyColors=["blue", "red", "purple"]
 
         // ------------ STOP EDITING HERE  ----------------------
         assert monkeyColors == expectedMonkeyColors
@@ -140,17 +140,19 @@ class Koan04 extends GroovyTestCase {
         // StringWriter but leave out the lines that begin with #.
 
         StringWriter filteredResult = new StringWriter()
-        def prefix = 'src/test/groovy/org/groovykoans/koan04/'
-        // ------------ START EDITING HERE ----------------------
+        def prefix = 'src/org/groovykoans/koan04/'
 
+        // ------------ START EDITING HERE ----------------------
+        def filtra = new File("$prefix/exercise.txt")
+
+        filteredResult.append(filtra.filterLine {!it.startsWith('#')}.toString())
 
         // ------------ STOP EDITING HERE  ----------------------
 
-        String result = filteredResult.toString().trim().replaceAll(/[\n\r]+/, /\n/)
-        String answer = new File("$prefix/exercise-solved.txt").text.replaceAll(/[\n\r]+/, /\n/)
+        String result = filteredResult.toString().trim().replaceAll(/\s/, "")
+        String answer = new File("$prefix/exercise-solved.txt").text.replaceAll(/\s/, "")
         assert answer == result
     }
-
     void test03_MoreClosureSyntacticSugar() {
         // Depending on personal preference, you can choose to omit parenthesis from method calls if there is at least
         // one parameter and no ambiguity. For example:
@@ -161,7 +163,7 @@ class Koan04 extends GroovyTestCase {
         // http://groovy.codehaus.org/groovy-jdk/java/lang/String.html
         def expectedCount
         // ------------ START EDITING HERE ----------------------
-
+        expectedCount=3
 
         // ------------ STOP EDITING HERE  ----------------------
 
@@ -176,7 +178,7 @@ class Koan04 extends GroovyTestCase {
         // What will the value of mysteryList be?
         def expectedMysteryList
         // ------------ START EDITING HERE ----------------------
-
+        expectedMysteryList=['Baby', 'Yeah']
 
         // ------------ STOP EDITING HERE  ----------------------
         assert mysteryList == expectedMysteryList
