@@ -50,6 +50,8 @@ class Koan05 extends GroovyTestCase {
         // http://groovy.codehaus.org/groovy-jdk/java/util/Map.html#each(groovy.lang.Closure)
         def idListResult = []
         // ------------ START EDITING HERE ----------------------
+        def list =[333:'Matthew', 233:'Christopher', 133: 'Dominic']
+        list.each {key, value -> idListResult.add("$key$value")}
 
 
         // ------------ STOP EDITING HERE  ----------------------
@@ -66,7 +68,7 @@ class Koan05 extends GroovyTestCase {
         // What will range equal?
         def expectedRange = []
         // ------------ START EDITING HERE ----------------------
-
+        expectedRange = [5, 6, 7, 8, 9, 10]
 
         // ------------ STOP EDITING HERE  ----------------------
         assert range == expectedRange
@@ -79,6 +81,8 @@ class Koan05 extends GroovyTestCase {
         // http://groovy.codehaus.org/groovy-jdk/java/lang/Object.html#eachWithIndex(groovy.lang.Closure)
         def rangeResult = []
         // ------------ START EDITING HERE ----------------------
+        def range= 'a'..'z'
+        range.eachWithIndex {el, i -> if(i%2==0) rangeResult.add(el)}
 
 
         // ------------ STOP EDITING HERE  ----------------------
